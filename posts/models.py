@@ -15,7 +15,9 @@ class Post(models.Model):
         blank=True, null=True)
 
     def __str__(self):
-        return self.text
+        return (f"{self.text[:20]} | "
+                f"{self.pub_date.strftime('%m/%d/%Y')} | "
+                f"{self.author}")
 
     class Meta:
         ordering = ('-pub_date',)
